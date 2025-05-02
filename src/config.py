@@ -7,6 +7,10 @@ AVAILABLE_TYPES_OF_IMAGE = ["raw", "rgb"]
 
 AVAILABLE_MODELS = ["cnn", "vgg19", "lwcnn", "resnet"]
 
+AVAILABLE_ML_ALGORITHMS = ["rf", "dt", "bagging", "knn", "svm", "ridge"]
+
+SEEDS = [404, 666, 42, 171, 51, 720, 269, 289, 376, 767]
+
 # -------------------------------------------------------
 # -------------------------------------------------------
 
