@@ -28,7 +28,7 @@ if __name__ == "__main__":
     TYPE_OF_IMAGE = "rgb" #raw
     MODEL = "cnn" #"vgg19" "lwcnn" "resnet"
 
-    DATA_AUGMENTATION = True # False
+    DATA_AUGMENTATION = False # False
 
     # ----------------------------
     # Set the seed using keras.utils.set_random_seed. This will set:
@@ -38,12 +38,18 @@ if __name__ == "__main__":
     # ----------------------------
 
     SEEDS = [404, 666, 42, 171, 51]
-    current_seed = SEEDS[0]
+    current_seed = SEEDS[1]
+
+    print(" ========================= ")
+    print("* Runnin Experiments")
+    print(" ========================= ")
+    print("* Type of image: ", TYPE_OF_IMAGE)
+    print("* Model: ", MODEL)
+    print("* Data Augmentation: ", DATA_AUGMENTATION)
     print("* Seed: ", current_seed)
+    print(" ========================= ")
 
-    print("AQUi")
     keras.utils.set_random_seed(current_seed)
-
     
     health_dir = "data/saudaveis"
     osteo_dir  = "data/diagnosticos"
@@ -69,18 +75,18 @@ if __name__ == "__main__":
     all_files = csv_files_health + csv_files_osteo
 
     x_train_files, x_test_files, y_train, y_test = train_test_split(all_files,
-        Y, test_size=0.3, random_state=42, stratify=Y)
+        Y, test_size=0.3, random_state=current_seed, stratify=Y)
 
-    print("Tamanho do X_train:", len(x_train_files))
-    print("Tamanho do X_test:", len(x_test_files))
-    print("Tamanho do y_train:", y_train.shape)
-    print("Tamanho do y_test:", y_test.shape)
+    # print("Tamanho do X_train:", len(x_train_files))
+    # print("Tamanho do X_test:", len(x_test_files))
+    # print("Tamanho do y_train:", y_train.shape)
+    # print("Tamanho do y_test:", y_test.shape)
 
     # --------------------------------------------------------------
     # reading images from files
     # --------------------------------------------------------------
 
-    print("* Reading images fromfiles ")
+    print(" @ Reading images from files ")
 
     x_train_images = load_images_from_csv_files(csv_files=x_train_files)
     print(x_train_images[0].shape)
@@ -90,12 +96,12 @@ if __name__ == "__main__":
 
 
     if(TYPE_OF_IMAGE == "rgb"):
-        print("* Converting thermal images to RGB")
+        print(" @ Converting thermal images to RGB")
         new_x_train_images = [thermal_to_rgb_image(x) for x in x_train_images]
         new_x_test_images  = [thermal_to_rgb_image(x) for x in x_test_images]
         input_shape = (239, 320, 3)
     else:
-        print ("* Using raw images - normalized between [0, 1]")
+        print (" @ Using raw images - normalized between [0, 1]")
         new_x_train_images = [normalize(x) for x in x_train_images]
         new_x_test_images  = [normalize(x) for x in x_test_images]
         input_shape = (239, 320, 1)
@@ -126,21 +132,27 @@ if __name__ == "__main__":
         case "resnet":
             model = get_ResNet50_model_Keras(input_shape=input_shape)
 
+    print(" ----------------------------")
+    print(" @ Model summary")
+    print(" ----------------------------")
+
     model.summary()
 
+    print(" ----------------------------")
+    
     # ----------------------------
     # Traninig the algorithm
     # ----------------------------
 
     model.compile(optimizer='adam',
                   loss=BinaryCrossentropy(), 
-                  metrics=['binary_accuracy', 'accuracy'])
+                  metrics=['binary_accuracy', 'accuracy', 'precision', 'recall', 'AUC'])
 
     # Callbacks
     early_stopper = EarlyStopping(monitor="val_loss", mode="min", patience=10, verbose=1)
     csv_logger    = CSVLogger(f"output/log_history_{MODEL}_{TYPE_OF_IMAGE}_seed_{current_seed}.csv", separator=",", append=False)
 
-    print(f" * Training {MODEL}\n")
+    print(f" @ Training {MODEL}\n")
 
     history  = model.fit(X_train, y_train, epochs=100, 
                          validation_split=0.3, batch_size=8, 
@@ -149,7 +161,7 @@ if __name__ == "__main__":
     # ----------------------------
     # Evaluating predictions
     # ----------------------------
-    print(" * Evaluating DL model")
+    print(" @ Evaluating DL model")
 
     predictions = model.predict(X_test)
     rounded_predictions = np.round(predictions)
@@ -162,6 +174,8 @@ if __name__ == "__main__":
     print("bac = ", bac)
     print("f1c = ", f1s)
     print("----------------------------")
+
+    print(" @ Saving models and performance values")
 
     performances = ([acc, bac, f1s, current_seed, TYPE_OF_IMAGE, MODEL])
     df_performances = pd.DataFrame(performances).transpose()
@@ -179,7 +193,8 @@ if __name__ == "__main__":
     df_merged.columns = ['filepath', 'predictions', 'labels']
     df_merged.to_csv(f"output/predictions_{MODEL}_{TYPE_OF_IMAGE}_seed_{current_seed}.csv", index = False)
  
-    print("Finished !!! :) ")
-
+    print(" Finished !!! :) ")
+    print(" ----------------------------")
+    
 # -------------------------------------------------------
 # -------------------------------------------------------
