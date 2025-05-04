@@ -1,13 +1,20 @@
-# ------------------------------------------
-# ------------------------------------------
+## ------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------
+## Script name: 03_analysis.R
+##
+## Purpose of script: automate analysis and generate images/plots
+##
+## Author: Rafael Gomes Mantovani
+##
+## Date Created: 2024-05-02
+## ------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------
 
+cat(" @ Loading all required files:\n")
+library(ggplot2,    quietly = TRUE, warn.conflicts = FALSE)
+library(reshape2,   quietly = TRUE, warn.conflicts = FALSE)
+library(dplyr,      quietly = TRUE, warn.conflicts = FALSE)
 
-library("dplyr")
-library("reshape2")
-library("ggplot2")
-
-# ---------------------------
-# ---------------------------
 
 dir.create(path = "plots/", recursive=TRUE, showWarnings=FALSE)
 

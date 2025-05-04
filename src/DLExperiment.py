@@ -2,11 +2,11 @@
 # -------------------------------------------------------
 
 import glob 
-import os
+import os.path as file
+
 import pandas as pd
 import numpy as np
 
-from tensorflow import keras
 from tensorflow.keras.losses import BinaryCrossentropy
 from tensorflow.keras.callbacks import EarlyStopping, CSVLogger
 
@@ -23,40 +23,20 @@ from src.deepModels import get_CNN_model, get_VGG19_model_Keras, get_LW_CNN_mode
 # -------------------------------------------------------
 # -------------------------------------------------------
 
-if __name__ == "__main__":
-
-    TYPE_OF_IMAGE = "rgb" #raw
-    MODEL = "cnn" #"vgg19" "lwcnn" "resnet"
-
-    DATA_AUGMENTATION = False # False
-
-    # ----------------------------
-    # Set the seed using keras.utils.set_random_seed. This will set:
-    # 1) `numpy` seed
-    # 2) `tensorflow` random seed
-    # 3) `python` random seed
-    # ----------------------------
-
-    SEEDS = [404, 666, 42, 171, 51]
-    current_seed = SEEDS[1]
-
-    print(" ========================= ")
-    print("* Runnin Experiments")
-    print(" ========================= ")
-    print("* Type of image: ", TYPE_OF_IMAGE)
-    print("* Model: ", MODEL)
-    print("* Data Augmentation: ", DATA_AUGMENTATION)
-    print("* Seed: ", current_seed)
-    print(" ========================= ")
-
-    keras.utils.set_random_seed(current_seed)
+def deepLearningExperiment(current_seed, dl_model, type_of_image, data_augmentation=False):
     
+    output_file = f"output/performances_{dl_model}_{type_of_image}_seed_{current_seed}.csv"
+    if(file.exists(output_file)):
+        print(" @ File already exists, skipping...")
+        return 
+
+    print(" @ Loading images from files")
     health_dir = "data/saudaveis"
     osteo_dir  = "data/diagnosticos"
     
     # loading filepaths
-    csv_files_health = glob.glob(os.path.join(health_dir, "**","*.csv"),recursive=True)
-    csv_files_osteo  = glob.glob(os.path.join(osteo_dir, "**", "*.csv"),recursive=True)
+    csv_files_health = glob.glob(file.join(health_dir, "**","*.csv"),recursive=True)
+    csv_files_osteo  = glob.glob(file.join(osteo_dir, "**", "*.csv"),recursive=True)
     
     print(" -> Health files = ", len(csv_files_health)) # 560 files
     print(" -> Osteo files = ", len(csv_files_osteo))   # 171 files
@@ -77,11 +57,6 @@ if __name__ == "__main__":
     x_train_files, x_test_files, y_train, y_test = train_test_split(all_files,
         Y, test_size=0.3, random_state=current_seed, stratify=Y)
 
-    # print("Tamanho do X_train:", len(x_train_files))
-    # print("Tamanho do X_test:", len(x_test_files))
-    # print("Tamanho do y_train:", y_train.shape)
-    # print("Tamanho do y_test:", y_test.shape)
-
     # --------------------------------------------------------------
     # reading images from files
     # --------------------------------------------------------------
@@ -95,7 +70,7 @@ if __name__ == "__main__":
     print(x_test_images[0].shape)
 
 
-    if(TYPE_OF_IMAGE == "rgb"):
+    if(type_of_image == "rgb"):
         print(" @ Converting thermal images to RGB")
         new_x_train_images = [thermal_to_rgb_image(x) for x in x_train_images]
         new_x_test_images  = [thermal_to_rgb_image(x) for x in x_test_images]
@@ -114,7 +89,7 @@ if __name__ == "__main__":
     X_test  = np.array(new_x_test_images)
 
     # convert values to the inverval [0, 1]
-    if(TYPE_OF_IMAGE != "raw"):
+    if(type_of_image != "raw"):
         X_train = X_train.astype("float32") / 255
         X_test = X_test.astype("float32") / 255
 
@@ -122,7 +97,7 @@ if __name__ == "__main__":
     # Defining DL model
     # -------------------------------------------
     
-    match MODEL:
+    match dl_model:
         case "cnn":
             model = get_CNN_model(input_shape=input_shape)
         case "vgg19":
@@ -150,12 +125,11 @@ if __name__ == "__main__":
 
     # Callbacks
     early_stopper = EarlyStopping(monitor="val_loss", mode="min", patience=10, verbose=1)
-    csv_logger    = CSVLogger(f"output/log_history_{MODEL}_{TYPE_OF_IMAGE}_seed_{current_seed}.csv", separator=",", append=False)
+    csv_logger    = CSVLogger(f"output/log_history_{dl_model}_{type_of_image}_seed_{current_seed}.csv", separator=",", append=False)
 
-    print(f" @ Training {MODEL}\n")
+    print(f" @ Training {dl_model}\n")
 
-    history  = model.fit(X_train, y_train, epochs=100, 
-                         validation_split=0.3, batch_size=8, 
+    history  = model.fit(X_train, y_train, epochs=100, validation_split=0.3, batch_size=8, 
                          callbacks=[early_stopper, csv_logger])
 
     # ----------------------------
@@ -176,11 +150,10 @@ if __name__ == "__main__":
     print("----------------------------")
 
     print(" @ Saving models and performance values")
-
-    performances = ([acc, bac, f1s, current_seed, TYPE_OF_IMAGE, MODEL])
+    performances = ([acc, bac, f1s, current_seed, type_of_image, dl_model])
     df_performances = pd.DataFrame(performances).transpose()
     df_performances.columns = ['accuracy', 'balanced_accuracy', 'fscore', 'seed', 'type_of_image', 'model']
-    df_performances.to_csv(f"output/performances_{MODEL}_{TYPE_OF_IMAGE}_seed_{current_seed}.csv", index = False)
+    df_performances.to_csv(output_file, index = False)
 
     # -----------------------------------------------------------
     # adding predictions to a data frame
@@ -191,7 +164,7 @@ if __name__ == "__main__":
     df_label = pd.DataFrame(y_test)
     df_merged = pd.concat([df_x_test_files, df_pred, df_label], axis = 1)
     df_merged.columns = ['filepath', 'predictions', 'labels']
-    df_merged.to_csv(f"output/predictions_{MODEL}_{TYPE_OF_IMAGE}_seed_{current_seed}.csv", index = False)
+    df_merged.to_csv(f"output/predictions_{dl_model}_{type_of_image}_seed_{current_seed}.csv", index = False)
  
     print(" Finished !!! :) ")
     print(" ----------------------------")
