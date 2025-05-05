@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 from tensorflow.keras.losses import BinaryCrossentropy
-from tensorflow.keras.callbacks import EarlyStopping, CSVLogger
+from tensorflow.keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score
@@ -124,13 +124,19 @@ def deepLearningExperiment(current_seed, dl_model, type_of_image, data_augmentat
                   metrics=['binary_accuracy', 'accuracy', 'precision', 'recall', 'AUC'])
 
     # Callbacks
-    early_stopper = EarlyStopping(monitor="val_loss", mode="min", patience=10, verbose=1)
-    csv_logger    = CSVLogger(f"output/log_history_{dl_model}_{type_of_image}_seed_{current_seed}.csv", separator=",", append=False)
+    model_checkpoint = ModelCheckpoint(filepath=f"output/best_model_{dl_model}_{type_of_image}_seed_{current_seed}.keras",
+                                monitor='val_loss',save_best_only=True,
+                                mode='min', verbose=1)
+    early_stopper = EarlyStopping(monitor="val_loss", 
+                                mode="min", patience=10,
+                                verbose=1, restore_best_weights=True)
+    csv_logger    = CSVLogger(f"output/log_history_{dl_model}_{type_of_image}_seed_{current_seed}.csv", 
+                                separator=",", append=False)
 
     print(f" @ Training {dl_model}\n")
 
     history  = model.fit(X_train, y_train, epochs=100, validation_split=0.3, batch_size=8, 
-                         callbacks=[early_stopper, csv_logger])
+                         callbacks=[csv_logger, model_checkpoint, early_stopper])
 
     # ----------------------------
     # Evaluating predictions
