@@ -50,7 +50,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,376,0.0,image_409.png
 0.0,bagging,376,0.0,image_81.png
 0.0,bagging,376,0.0,image_274.png
-1.0,bagging,376,0.0,image_268.png
+0.0,bagging,376,0.0,image_268.png
 0.0,bagging,376,0.0,image_69.png
 0.0,bagging,376,0.0,image_528.png
 1.0,bagging,376,1.0,image_154.png

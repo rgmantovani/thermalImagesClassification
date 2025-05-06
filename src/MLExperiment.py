@@ -35,6 +35,10 @@ def machineLearningExperiment(current_seed, algorithm):
     df_health = pd.read_csv(health_features)
     df_osteo  = pd.read_csv(osteo_features)
 
+    # -----------------------------
+    #  Preprocessing
+    # -----------------------------
+
     # order by filename
     df_health['ids'] = df_health['Name_file'].str.replace("image_", "").str.replace(".png", "")
     df_health['ids'] = pd.to_numeric(df_health['ids'])
@@ -49,9 +53,16 @@ def machineLearningExperiment(current_seed, algorithm):
     # merge by rows, remove constans columns
     df_all = pd.concat([df_health, df_osteo])
 
+    # Removing constant features
     constant_columns = [col for col in df_all.columns if df_all[col].nunique() == 1]
     constant_columns.append("ids")
     df_cleaned = df_all.drop(columns=constant_columns)
+
+    # Removing highly correlated features ( > 0.95)
+    corr_matrix = df_cleaned.drop("Name_file", axis=1).corr().abs()
+    upper       = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(bool))
+    to_drop     = [column for column in upper.columns if any(upper[column] > 0.95)]
+    df_cleaned.drop(to_drop, axis=1, inplace=True)
     X = df_cleaned
 
     # ----------------------------

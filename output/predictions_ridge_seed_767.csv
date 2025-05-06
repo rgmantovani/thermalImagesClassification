@@ -17,7 +17,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,767,0.0,image_391.png
 0.0,ridge,767,0.0,image_533.png
 0.0,ridge,767,0.0,image_463.png
-0.0,ridge,767,1.0,image_125.png
+1.0,ridge,767,1.0,image_125.png
 1.0,ridge,767,1.0,image_44.png
 0.0,ridge,767,0.0,image_207.png
 0.0,ridge,767,1.0,image_168.png
@@ -48,7 +48,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,767,0.0,image_549.png
 1.0,ridge,767,1.0,image_161.png
 0.0,ridge,767,0.0,image_263.png
-0.0,ridge,767,0.0,image_77.png
+1.0,ridge,767,0.0,image_77.png
 0.0,ridge,767,0.0,image_517.png
 0.0,ridge,767,0.0,image_67.png
 0.0,ridge,767,0.0,image_31.png
@@ -58,7 +58,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,ridge,767,1.0,image_60.png
 0.0,ridge,767,0.0,image_410.png
 0.0,ridge,767,0.0,image_331.png
-0.0,ridge,767,0.0,image_138.png
+1.0,ridge,767,0.0,image_138.png
 0.0,ridge,767,0.0,image_293.png
 0.0,ridge,767,0.0,image_75.png
 0.0,ridge,767,0.0,image_159.png
@@ -113,7 +113,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,ridge,767,1.0,image_142.png
 0.0,ridge,767,0.0,image_40.png
 0.0,ridge,767,0.0,image_545.png
-0.0,ridge,767,0.0,image_332.png
+1.0,ridge,767,0.0,image_332.png
 0.0,ridge,767,0.0,image_38.png
 0.0,ridge,767,0.0,image_200.png
 1.0,ridge,767,1.0,image_58.png
@@ -158,7 +158,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,767,0.0,image_130.png
 0.0,ridge,767,0.0,image_101.png
 0.0,ridge,767,0.0,image_58.png
-0.0,ridge,767,1.0,image_121.png
+1.0,ridge,767,1.0,image_121.png
 0.0,ridge,767,0.0,image_254.png
 1.0,ridge,767,1.0,image_98.png
 1.0,ridge,767,1.0,image_157.png
@@ -172,12 +172,12 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,767,0.0,image_409.png
 1.0,ridge,767,1.0,image_48.png
 0.0,ridge,767,0.0,image_344.png
-0.0,ridge,767,0.0,image_269.png
+1.0,ridge,767,0.0,image_269.png
 0.0,ridge,767,1.0,image_50.png
 0.0,ridge,767,0.0,image_188.png
 0.0,ridge,767,0.0,image_440.png
 0.0,ridge,767,0.0,image_214.png
-0.0,ridge,767,1.0,image_169.png
+1.0,ridge,767,1.0,image_169.png
 0.0,ridge,767,0.0,image_108.png
 0.0,ridge,767,0.0,image_352.png
 0.0,ridge,767,1.0,image_31.png

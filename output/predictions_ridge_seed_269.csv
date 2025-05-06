@@ -5,7 +5,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,0.0,image_545.png
 0.0,ridge,269,0.0,image_274.png
 1.0,ridge,269,1.0,image_25.png
-0.0,ridge,269,1.0,image_126.png
+1.0,ridge,269,1.0,image_126.png
 0.0,ridge,269,0.0,image_497.png
 0.0,ridge,269,0.0,image_30.png
 0.0,ridge,269,0.0,image_311.png
@@ -15,7 +15,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,0.0,image_92.png
 0.0,ridge,269,1.0,image_122.png
 1.0,ridge,269,1.0,image_138.png
-1.0,ridge,269,1.0,image_74.png
+0.0,ridge,269,1.0,image_74.png
 0.0,ridge,269,0.0,image_175.png
 0.0,ridge,269,1.0,image_12.png
 1.0,ridge,269,1.0,image_89.png
@@ -37,7 +37,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,0.0,image_401.png
 0.0,ridge,269,0.0,image_93.png
 0.0,ridge,269,0.0,image_433.png
-0.0,ridge,269,1.0,image_121.png
+1.0,ridge,269,1.0,image_121.png
 0.0,ridge,269,0.0,image_335.png
 0.0,ridge,269,1.0,image_14.png
 0.0,ridge,269,0.0,image_378.png
@@ -55,7 +55,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,ridge,269,1.0,image_105.png
 0.0,ridge,269,1.0,image_115.png
 0.0,ridge,269,0.0,image_4.png
-0.0,ridge,269,0.0,image_332.png
+1.0,ridge,269,0.0,image_332.png
 1.0,ridge,269,1.0,image_16.png
 0.0,ridge,269,1.0,image_21.png
 1.0,ridge,269,1.0,image_128.png
@@ -68,7 +68,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,ridge,269,1.0,image_142.png
 0.0,ridge,269,0.0,image_501.png
 0.0,ridge,269,0.0,image_222.png
-1.0,ridge,269,1.0,image_10.png
+0.0,ridge,269,1.0,image_10.png
 1.0,ridge,269,1.0,image_92.png
 0.0,ridge,269,0.0,image_304.png
 1.0,ridge,269,1.0,image_150.png
@@ -122,7 +122,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,1.0,image_99.png
 0.0,ridge,269,0.0,image_195.png
 1.0,ridge,269,1.0,image_48.png
-1.0,ridge,269,0.0,image_60.png
+0.0,ridge,269,0.0,image_60.png
 0.0,ridge,269,0.0,image_377.png
 0.0,ridge,269,0.0,image_375.png
 0.0,ridge,269,0.0,image_340.png
@@ -163,7 +163,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,0.0,image_342.png
 0.0,ridge,269,0.0,image_286.png
 0.0,ridge,269,0.0,image_280.png
-0.0,ridge,269,0.0,image_268.png
+1.0,ridge,269,0.0,image_268.png
 0.0,ridge,269,0.0,image_409.png
 1.0,ridge,269,1.0,image_8.png
 0.0,ridge,269,0.0,image_407.png
@@ -174,14 +174,14 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,0.0,image_182.png
 0.0,ridge,269,0.0,image_116.png
 0.0,ridge,269,0.0,image_48.png
-0.0,ridge,269,0.0,image_76.png
+1.0,ridge,269,0.0,image_76.png
 0.0,ridge,269,0.0,image_496.png
 0.0,ridge,269,0.0,image_31.png
 1.0,ridge,269,1.0,image_80.png
 0.0,ridge,269,0.0,image_344.png
 1.0,ridge,269,1.0,image_140.png
-0.0,ridge,269,1.0,image_120.png
-0.0,ridge,269,1.0,image_43.png
+1.0,ridge,269,1.0,image_120.png
+1.0,ridge,269,1.0,image_43.png
 1.0,ridge,269,1.0,image_155.png
 0.0,ridge,269,0.0,image_498.png
 0.0,ridge,269,0.0,image_351.png
@@ -189,7 +189,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,269,0.0,image_350.png
 0.0,ridge,269,0.0,image_58.png
 0.0,ridge,269,0.0,image_368.png
-0.0,ridge,269,0.0,image_271.png
+1.0,ridge,269,0.0,image_271.png
 0.0,ridge,269,0.0,image_129.png
 0.0,ridge,269,0.0,image_473.png
 0.0,ridge,269,0.0,image_189.png

@@ -98,7 +98,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,svm,404,0.0,image_96.png
 0.0,svm,404,0.0,image_478.png
 1.0,svm,404,1.0,image_141.png
-0.0,svm,404,1.0,image_58.png
+1.0,svm,404,1.0,image_58.png
 0.0,svm,404,0.0,image_510.png
 0.0,svm,404,0.0,image_298.png
 0.0,svm,404,0.0,image_448.png

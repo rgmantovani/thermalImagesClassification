@@ -34,8 +34,8 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,289,0.0,image_24.png
 0.0,bagging,289,0.0,image_330.png
 0.0,bagging,289,0.0,image_276.png
-0.0,bagging,289,0.0,image_20.png
-1.0,bagging,289,0.0,image_104.png
+1.0,bagging,289,0.0,image_20.png
+0.0,bagging,289,0.0,image_104.png
 0.0,bagging,289,0.0,image_151.png
 0.0,bagging,289,0.0,image_496.png
 0.0,bagging,289,1.0,image_149.png
@@ -109,7 +109,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,289,0.0,image_294.png
 0.0,bagging,289,0.0,image_503.png
 0.0,bagging,289,0.0,image_190.png
-0.0,bagging,289,0.0,image_76.png
+1.0,bagging,289,0.0,image_76.png
 0.0,bagging,289,0.0,image_118.png
 0.0,bagging,289,0.0,image_527.png
 1.0,bagging,289,0.0,image_73.png
@@ -144,7 +144,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,bagging,289,1.0,image_91.png
 1.0,bagging,289,1.0,image_102.png
 0.0,bagging,289,0.0,image_81.png
-1.0,bagging,289,0.0,image_33.png
+0.0,bagging,289,0.0,image_33.png
 1.0,bagging,289,1.0,image_109.png
 0.0,bagging,289,0.0,image_546.png
 0.0,bagging,289,0.0,image_53.png
@@ -156,7 +156,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,289,0.0,image_200.png
 0.0,bagging,289,0.0,image_316.png
 1.0,bagging,289,1.0,image_151.png
-0.0,bagging,289,0.0,image_261.png
+1.0,bagging,289,0.0,image_261.png
 0.0,bagging,289,0.0,image_443.png
 0.0,bagging,289,0.0,image_286.png
 1.0,bagging,289,1.0,image_87.png
@@ -187,7 +187,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,289,0.0,image_65.png
 0.0,bagging,289,0.0,image_55.png
 0.0,bagging,289,0.0,image_385.png
-0.0,bagging,289,1.0,image_118.png
+1.0,bagging,289,1.0,image_118.png
 0.0,bagging,289,0.0,image_344.png
 0.0,bagging,289,0.0,image_260.png
 0.0,bagging,289,0.0,image_244.png
@@ -213,7 +213,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,289,0.0,image_239.png
 0.0,bagging,289,1.0,image_6.png
 0.0,bagging,289,0.0,image_326.png
-0.0,bagging,289,1.0,image_51.png
+1.0,bagging,289,1.0,image_51.png
 0.0,bagging,289,0.0,image_45.png
 0.0,bagging,289,0.0,image_498.png
 1.0,bagging,289,1.0,image_55.png

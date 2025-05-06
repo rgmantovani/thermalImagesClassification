@@ -5,7 +5,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,svm,269,0.0,image_545.png
 0.0,svm,269,0.0,image_274.png
 1.0,svm,269,1.0,image_25.png
-0.0,svm,269,1.0,image_126.png
+1.0,svm,269,1.0,image_126.png
 0.0,svm,269,0.0,image_497.png
 0.0,svm,269,0.0,image_30.png
 0.0,svm,269,0.0,image_311.png
@@ -165,7 +165,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,svm,269,0.0,image_280.png
 0.0,svm,269,0.0,image_268.png
 0.0,svm,269,0.0,image_409.png
-1.0,svm,269,1.0,image_8.png
+0.0,svm,269,1.0,image_8.png
 0.0,svm,269,0.0,image_407.png
 0.0,svm,269,0.0,image_142.png
 0.0,svm,269,0.0,image_244.png
@@ -180,7 +180,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,svm,269,1.0,image_80.png
 0.0,svm,269,0.0,image_344.png
 1.0,svm,269,1.0,image_140.png
-1.0,svm,269,1.0,image_120.png
+0.0,svm,269,1.0,image_120.png
 1.0,svm,269,1.0,image_43.png
 1.0,svm,269,1.0,image_155.png
 0.0,svm,269,0.0,image_498.png

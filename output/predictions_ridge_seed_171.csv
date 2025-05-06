@@ -10,10 +10,10 @@ predictions,algo,seed,Y,x_test_file
 1.0,ridge,171,1.0,image_157.png
 0.0,ridge,171,0.0,image_410.png
 0.0,ridge,171,0.0,image_188.png
-0.0,ridge,171,0.0,image_6.png
+1.0,ridge,171,0.0,image_6.png
 0.0,ridge,171,0.0,image_417.png
 0.0,ridge,171,0.0,image_389.png
-1.0,ridge,171,0.0,image_418.png
+0.0,ridge,171,0.0,image_418.png
 0.0,ridge,171,0.0,image_374.png
 0.0,ridge,171,0.0,image_246.png
 0.0,ridge,171,0.0,image_184.png
@@ -42,7 +42,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,171,1.0,image_12.png
 0.0,ridge,171,0.0,image_433.png
 0.0,ridge,171,0.0,image_108.png
-1.0,ridge,171,0.0,image_129.png
+0.0,ridge,171,0.0,image_129.png
 0.0,ridge,171,0.0,image_10.png
 0.0,ridge,171,0.0,image_353.png
 1.0,ridge,171,1.0,image_130.png
@@ -117,12 +117,12 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,171,0.0,image_460.png
 0.0,ridge,171,0.0,image_231.png
 0.0,ridge,171,0.0,image_549.png
-1.0,ridge,171,0.0,image_252.png
+0.0,ridge,171,0.0,image_252.png
 0.0,ridge,171,0.0,image_469.png
 0.0,ridge,171,0.0,image_355.png
 0.0,ridge,171,0.0,image_58.png
 0.0,ridge,171,0.0,image_258.png
-0.0,ridge,171,0.0,image_237.png
+1.0,ridge,171,0.0,image_237.png
 0.0,ridge,171,0.0,image_413.png
 0.0,ridge,171,0.0,image_462.png
 0.0,ridge,171,0.0,image_467.png
@@ -173,7 +173,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,171,0.0,image_193.png
 0.0,ridge,171,0.0,image_112.png
 0.0,ridge,171,0.0,image_443.png
-0.0,ridge,171,1.0,image_120.png
+1.0,ridge,171,1.0,image_120.png
 0.0,ridge,171,0.0,image_505.png
 0.0,ridge,171,0.0,image_359.png
 0.0,ridge,171,0.0,image_367.png
@@ -182,7 +182,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,ridge,171,0.0,image_141.png
 1.0,ridge,171,1.0,image_93.png
 0.0,ridge,171,0.0,image_84.png
-1.0,ridge,171,0.0,image_415.png
+0.0,ridge,171,0.0,image_415.png
 0.0,ridge,171,0.0,image_236.png
 0.0,ridge,171,0.0,image_0.png
 0.0,ridge,171,0.0,image_41.png
@@ -208,7 +208,7 @@ predictions,algo,seed,Y,x_test_file
 1.0,ridge,171,1.0,image_79.png
 0.0,ridge,171,0.0,image_535.png
 0.0,ridge,171,0.0,image_331.png
-1.0,ridge,171,1.0,image_119.png
+0.0,ridge,171,1.0,image_119.png
 1.0,ridge,171,1.0,image_91.png
 0.0,ridge,171,0.0,image_376.png
 1.0,ridge,171,1.0,image_5.png

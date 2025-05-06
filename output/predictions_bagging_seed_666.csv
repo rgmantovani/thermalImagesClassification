@@ -29,7 +29,7 @@ predictions,algo,seed,Y,x_test_file
 0.0,bagging,666,0.0,image_465.png
 1.0,bagging,666,1.0,image_153.png
 0.0,bagging,666,0.0,image_392.png
-1.0,bagging,666,0.0,image_156.png
+0.0,bagging,666,0.0,image_156.png
 0.0,bagging,666,0.0,image_27.png
 0.0,bagging,666,0.0,image_168.png
 0.0,bagging,666,1.0,image_33.png
