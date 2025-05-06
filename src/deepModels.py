@@ -76,15 +76,16 @@ def get_LW_CNN_model_Taspinar(input_shape):
 
 def get_ResNet50_model_Keras(input_shape) :
 
-    ResNetmodel = models.Sequential()
-    baseModel   = ResNet50(input_shape=input_shape, weights='imagenet',include_top=False)
-    baseModel.trainable = False
-    ResNetmodel.add(baseModel)
-    ResNetmodel.add(layers.Flatten())
-    ResNetmodel.add(layers.Dense(64,activation = 'relu'))
-    ResNetmodel.add(layers.Dense(1,activation = 'sigmoid'))
+  ResNetmodel = models.Sequential()
+  baseModel = ResNet50(input_shape=input_shape, weights='imagenet',include_top=False)
+  baseModel.trainable = True
+  ResNetmodel.add(baseModel)
+  ResNetmodel.add(layers.GlobalAveragePooling2D())
+  ResNetmodel.add(layers.Dropout(0.5))
+  ResNetmodel.add(layers.Dense(128, activation='relu'))
+  ResNetmodel.add(layers.Dense(2,activation = 'softmax'))
 
-    return(ResNetmodel)
+  return(ResNetmodel)
 
 # -------------------------------------------------------
 # -------------------------------------------------------

@@ -7,8 +7,10 @@ import os.path as file
 import pandas as pd
 import numpy as np
 
-from tensorflow.keras.losses import BinaryCrossentropy
+import tensorflow.keras as keras
+from tensorflow.keras.losses import BinaryCrossentropy, CategoricalCrossentropy
 from tensorflow.keras.callbacks import EarlyStopping, CSVLogger, ModelCheckpoint
+
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score
@@ -20,12 +22,17 @@ from src.plotImages import normalize, thermal_to_rgb_image
 
 from src.deepModels import get_CNN_model, get_VGG19_model_Keras, get_LW_CNN_model_Taspinar, get_ResNet50_model_Keras
 
+from src.augmentation import apply_aug, dataAugmentation
+
 # -------------------------------------------------------
 # -------------------------------------------------------
 
 def deepLearningExperiment(current_seed, dl_model, type_of_image, data_augmentation=False):
     
     output_file = f"output/performances_{dl_model}_{type_of_image}_seed_{current_seed}.csv"
+    if(data_augmentation):
+        output_file = f"output/performances_{dl_model}_DataAugmented_{type_of_image}_seed_{current_seed}.csv"
+    
     if(file.exists(output_file)):
         print(" @ File already exists, skipping...")
         return 
@@ -94,6 +101,22 @@ def deepLearningExperiment(current_seed, dl_model, type_of_image, data_augmentat
         X_test = X_test.astype("float32") / 255
 
     # -------------------------------------------
+    # Data Augmentation   
+    # -------------------------------------------
+
+    if DATA_AUGMENTATION:
+        print(f'Antes do augmentation: {X_train.shape}')
+        X_train, y_train = dataAugmentation(X_train=X_train, y_train=y_train)
+        print(f'Depois do augmentation: {X_train.shape}')
+        model_file   = f"output/best_model_{dl_model}_DA_{type_of_image}_seed_{current_seed}.keras"
+        history_file = f"output/log_history_{dl_model}_DA_{type_of_image}_seed_{current_seed}.csv"
+        predictions_file = f"output/predictions_{dl_model}_DA_{type_of_image}_seed_{current_seed}.csv"
+    else:
+        model_file   = f"output/best_model_{dl_model}_{type_of_image}_seed_{current_seed}.keras"
+        history_file = f"output/log_history_{dl_model}_{type_of_image}_seed_{current_seed}.csv"
+        predictions_file = f"output/predictions_{dl_model}_{type_of_image}_seed_{current_seed}.csv"
+
+    # -------------------------------------------
     # Defining DL model
     # -------------------------------------------
     
@@ -118,25 +141,28 @@ def deepLearningExperiment(current_seed, dl_model, type_of_image, data_augmentat
     # ----------------------------
     # Traninig the algorithm
     # ----------------------------
-
-    model.compile(optimizer='adam',
-                  loss=BinaryCrossentropy(), 
+    if (dl_model == "resnet"):
+        model.compile(optimizer='adam', loss=CategoricalCrossentropy(),
+            metrics=['binary_accuracy', 'accuracy', 'precision', 'recall', 'AUC'])
+        y_train = keras.utils.to_categorical(y_train, 2)
+        y_test  = keras.utils.to_categorical(y_test, 2)
+    else: 
+        model.compile(optimizer='adam',loss=BinaryCrossentropy(), 
                   metrics=['binary_accuracy', 'accuracy', 'precision', 'recall', 'AUC'])
 
     # Callbacks
-    model_checkpoint = ModelCheckpoint(filepath=f"output/best_model_{dl_model}_{type_of_image}_seed_{current_seed}.keras",
+    model_checkpoint = ModelCheckpoint(filepath=model_file,
                                 monitor='val_loss',save_best_only=True,
                                 mode='min', verbose=1)
     early_stopper = EarlyStopping(monitor="val_loss", 
                                 mode="min", patience=10,
                                 verbose=1, restore_best_weights=True)
-    csv_logger    = CSVLogger(f"output/log_history_{dl_model}_{type_of_image}_seed_{current_seed}.csv", 
-                                separator=",", append=False)
+    csv_logger    = CSVLogger(history_file, separator=",", append=False)
 
     print(f" @ Training {dl_model}\n")
 
-    history  = model.fit(X_train, y_train, epochs=100, validation_split=0.3, batch_size=8, 
-                         callbacks=[csv_logger, model_checkpoint, early_stopper])
+    history  = model.fit(X_train, y_train, epochs=100, validation_split=0.3, batch_size=16, 
+                         callbacks=[csv_logger, model_checkpoint, early_stopper], Shuffle = True)
 
     # ----------------------------
     # Evaluating predictions
@@ -170,7 +196,7 @@ def deepLearningExperiment(current_seed, dl_model, type_of_image, data_augmentat
     df_label = pd.DataFrame(y_test)
     df_merged = pd.concat([df_x_test_files, df_pred, df_label], axis = 1)
     df_merged.columns = ['filepath', 'predictions', 'labels']
-    df_merged.to_csv(f"output/predictions_{dl_model}_{type_of_image}_seed_{current_seed}.csv", index = False)
+    df_merged.to_csv(predictions_file, index = False)
  
     print(" Finished !!! :) ")
     print(" ----------------------------")
