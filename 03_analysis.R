@@ -32,7 +32,7 @@ seeds = c(171, 666, 42, 51, 404, 720, 269, 289, 376, 767)
 # -----------------
 
 aux = lapply(performance.files, function(jobfile) {
-	print(jobfile)
+	# print(jobfile)
 
 	df = read.csv(file = paste0("output/",jobfile))
 	df = as.data.frame(df)

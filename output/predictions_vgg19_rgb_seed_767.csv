@@ -5,12 +5,12 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_214.csv,0.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa07/pessoa07_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_144.csv,0.0,0.0
-/content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa04/pessoa04_avaliacao01.csv,0.0,1.0
+/content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa04/pessoa04_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/diagnosticos/osteomielite_tibia/pessoa01/pessoa01_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_280.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_94.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_218.csv,0.0,0.0
-/content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa24/pessoa24_avaliacao05.csv,0.0,1.0
+/content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa24/pessoa24_avaliacao05.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_45.csv,1.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia_fibula_ilizarov/pessoa06/pessoa06_avaliacao02.csv,1.0,1.0
 /content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia_fibula_ilizarov/pessoa04/pessoa04_avaliacao02.csv,1.0,1.0
@@ -31,7 +31,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa01/pessoa01_avaliacao02.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_251.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_80.csv,0.0,0.0
-/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_108.csv,0.0,0.0
+/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_108.csv,1.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_210.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_103.csv,0.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa01/pessoa01_avaliacao01.csv,1.0,1.0
@@ -44,7 +44,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_119.csv,0.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia_fibula_aguda/pessoa02/pessoa02_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_86.csv,0.0,0.0
-/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_35.csv,0.0,0.0
+/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_35.csv,1.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_127.csv,0.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa10/pessoa10_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia_de_haste_intramedular/pessoa03/pessoa3_avaliacao01.csv,1.0,1.0
@@ -65,7 +65,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_57.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_267.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_258.csv,0.0,0.0
-/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_04.csv,0.0,0.0
+/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_04.csv,1.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_176.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_243.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_04.csv,0.0,0.0
@@ -128,7 +128,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_108.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_93.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_279.csv,0.0,0.0
-/content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia/pessoa01/pessoa01_avaliacao01.csv,0.0,1.0
+/content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia/pessoa01/pessoa01_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia_alongamento_osseo/pessoa01/pessoa01_avaliacao04.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_153.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_141.csv,0.0,0.0
@@ -148,7 +148,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_145.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_115.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_255.csv,0.0,0.0
-/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_98.csv,0.0,0.0
+/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_98.csv,1.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/fraturas_osseas/fratura_de_tibia_fibula_ilizarov/pessoa02/pessoa02_avaliacao05.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_160.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_269.csv,0.0,0.0
@@ -164,7 +164,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa07/pessoa07_avaliacao02.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_106.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_40.csv,0.0,0.0
-/content/thermalImagesClassification/data/diagnosticos/osteomielite_tibia/pessoa11/pessoa11_avaliacao01.csv,0.0,1.0
+/content/thermalImagesClassification/data/diagnosticos/osteomielite_tibia/pessoa11/pessoa11_avaliacao01.csv,1.0,1.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_158.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_235.csv,0.0,0.0
 /content/thermalImagesClassification/data/diagnosticos/pseudoartrose/pseudoartrose_de_tibia/pessoa06/pessoa06_avaliacao05.csv,1.0,1.0
@@ -196,7 +196,7 @@ filepath,predictions,labels
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_165.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_33.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_42.csv,0.0,0.0
-/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_81.csv,0.0,0.0
+/content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_81.csv,1.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_em_pe/Em_pe_52.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_217.csv,0.0,0.0
 /content/thermalImagesClassification/data/saudaveis/tibia_deitado/Deitado_246.csv,0.0,0.0
