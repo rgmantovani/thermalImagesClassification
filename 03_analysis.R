@@ -58,7 +58,7 @@ g = g + geom_violin() + geom_boxplot(width = .15) + theme_bw()
 g = g + geom_hline(yintercept = 0.8, linetype = "dotted", colour = "red")
 g = g + labs(x = "Model", y = "FScore)")
 g = g + theme(axis.text.x=element_text(angle = 90, hjust = 1, vjust = 0.5))
-ggsave(g, filename = "plots/overall_boxplot.pdf"), width = 6.4, height = 3.14)
+ggsave(g, filename = "plots/overall_boxplot.pdf", width = 6.4, height = 3.14)
 
 
 # ---------------
