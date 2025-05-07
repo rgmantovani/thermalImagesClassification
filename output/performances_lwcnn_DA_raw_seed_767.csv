@@ -1,0 +1,2 @@
+accuracy,balanced_accuracy,fscore,seed,type_of_image,model
+0.9181818181818182,0.9125188536953244,0.8363636363636363,767,raw,lwcnn
