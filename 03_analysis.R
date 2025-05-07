@@ -126,12 +126,43 @@ ggsave(g2, file = "plots/top2_confusion_matrices.pdf", width = 4.2, height = 2.1
 #  Ridge PCA (tSNE) 2D plot
 # -----------------
 
+cat(" @ Plot: 2D PCA plot \n")
 
+feat1 = read.csv("data/features/diagnosis_rgb.csv")
+feat1$Class = "Diagnosis"
+feat2 = read.csv("data/features/healthy_rgb.csv")
+feat2$Class = "Healthy"
 
+dataset.feat = rbind(feat1, feat2)
 
-# -----------------
-# Plot: problematic images
-# -----------------
+pca_res = prcomp(dataset.feat[, -c(1:4, ncol(dataset.feat))], scale. = TRUE)
+
+df.pca = as.data.frame(pca_res$x[,1:2])
+df.pca$Class = dataset.feat$Class
+
+variance = summary(pca_res)$importance[2,]
+
+g3 = ggplot(data = df.pca, mapping = aes(x = PC1, y = PC2, shape = Class, colour = Class))
+g3 = g3 + geom_point() + theme_bw()
+g3 = g3 + scale_colour_manual(values = c("black", "red"))
+g3 = g3 + labs(x = paste0("1st Component (", round(variance[1] * 100, 2), "%)"), 
+	y = paste0("2nd Component (",  round(variance[2] * 100, 2), "%)"))
+ggsave(g3, file = "plots/pca_ridge.pdf", width = 4.24, height = 3)
+
+cat(" @ Plot: 2D tSNE plto\n")
+
+# Tsne versions
+ids  = !duplicated(dataset.feat[, -c(1:4, ncol(dataset.feat))])
+temp =  dataset.feat[ids,]
+tsne_out = Rtsne(temp)
+df.tsne = data.frame(x = tsne_out$Y[,1], y = tsne_out$Y[,2])
+df.tsne$Class = dataset.feat$Class[ids] 
+
+g4 = ggplot(data = df.tsne, mapping = aes(x = x, y = y, shape = Class, colour = Class))
+g4 = g4 + geom_point() + theme_bw()
+g4 = g4 + scale_colour_manual(values = c("black", "red"))
+g4 = g4 + labs(x = "T[1]", y = "T[2]")
+ggsave(g4, file = "plots/tsne_ridge.pdf", width = 4.24, height = 3)
 
 
 # ------------------------------------------
