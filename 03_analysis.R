@@ -14,7 +14,8 @@ cat(" @ Loading all required files:\n")
 library(ggplot2,    quietly = TRUE, warn.conflicts = FALSE)
 library(reshape2,   quietly = TRUE, warn.conflicts = FALSE)
 library(dplyr,      quietly = TRUE, warn.conflicts = FALSE)
-
+library(Rtsne,      quietly = TRUE, warn.conflicts = FALSE)
+library(umap,       quietly = TRUE, warn.conflicts = FALSE)
 
 dir.create(path = "plots/", recursive=TRUE, showWarnings=FALSE)
 
@@ -149,12 +150,12 @@ g3 = g3 + labs(x = paste0("1st Component (", round(variance[1] * 100, 2), "%)"),
 	y = paste0("2nd Component (",  round(variance[2] * 100, 2), "%)"))
 ggsave(g3, file = "plots/pca_ridge.pdf", width = 4.24, height = 3)
 
-cat(" @ Plot: 2D tSNE plto\n")
+cat(" @ Plot: 2D tSNE plot\n")
 
 # Tsne versions
 ids  = !duplicated(dataset.feat[, -c(1:4, ncol(dataset.feat))])
 temp =  dataset.feat[ids,]
-tsne_out = Rtsne(temp)
+tsne_out = Rtsne(temp[,-c(1:4, ncol(dataset.feat))])
 df.tsne = data.frame(x = tsne_out$Y[,1], y = tsne_out$Y[,2])
 df.tsne$Class = dataset.feat$Class[ids] 
 
@@ -163,6 +164,22 @@ g4 = g4 + geom_point() + theme_bw()
 g4 = g4 + scale_colour_manual(values = c("black", "red"))
 g4 = g4 + labs(x = "T[1]", y = "T[2]")
 ggsave(g4, file = "plots/tsne_ridge.pdf", width = 4.24, height = 3)
+
+# Umap version
+cat(" @ Plot: 2D UMAP plot\n")
+
+ids  = !duplicated(dataset.feat[, -c(1:4, ncol(dataset.feat))])
+temp =  dataset.feat[ids,]
+umap_out = umap(temp[,-c(1:4, ncol(dataset.feat))])
+df.umap = data.frame(x = umap_out$layout[,1], y = umap_out$layout[,2])
+df.umap$Class = dataset.feat$Class[ids] 
+
+g5 = ggplot(data = df.umap, mapping = aes(x = x, y = y, shape = Class, colour = Class))
+g5 = g5 + geom_point() + theme_bw()
+g5 = g5 + scale_colour_manual(values = c("black", "red"))
+g5 = g5 + labs(x = "U[1]", y = "U[2]")
+ggsave(g5, file = "plots/umap_ridge.pdf", width = 4.24, height = 3)
+
 
 
 # ------------------------------------------
