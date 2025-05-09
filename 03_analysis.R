@@ -16,6 +16,8 @@ library(reshape2,   quietly = TRUE, warn.conflicts = FALSE)
 library(dplyr,      quietly = TRUE, warn.conflicts = FALSE)
 library(Rtsne,      quietly = TRUE, warn.conflicts = FALSE)
 library(umap,       quietly = TRUE, warn.conflicts = FALSE)
+library(ranger,     quietly = TRUE, warn.conflicts = FALSE)
+library(mlr,     quietly = TRUE, warn.conflicts = FALSE)
 
 dir.create(path = "plots/", recursive=TRUE, showWarnings=FALSE)
 
@@ -233,7 +235,7 @@ ggsave(g2, file = "plots/top3_confusion_matrices.pdf", width = 5.12, height = 2.
 
 
 # ---------------------------
-#  Ridge PCA (tSNE) 2D plot
+#  2D plots
 # ---------------------------
 
 cat(" @ Plot: 2D PCA plot \n")
@@ -291,6 +293,31 @@ g5 = g5 + geom_point() + theme_bw()
 g5 = g5 + scale_colour_manual(values = c("black", "red"))
 g5 = g5 + labs(x = "U[1]", y = "U[2]")
 ggsave(g5, file = "plots/umap_ridge.pdf", width = 4.24, height = 3)
+
+
+# ---------------------------
+#  RF plots
+# ---------------------------
+
+
+
+mlrTask = mlr::makeClassifTask(dataset.feat[,-1], id = "test", target = "Class")
+lrn     = mlr::makeLearner("classif.ranger", importance = "permutation")
+model   = mlr::train(task = mlrTask, learner = lrn)
+
+trueModel = model$learner.model
+
+importance = as.data.frame(trueModel$variable.importance)
+rf.df = cbind(rownames(importance), importance)
+rownames(rf.df) = NULL
+colnames(rf.df) = c("Feature", "Importance")
+
+rf.df = rf.df[order(rf.df$Importance, decreasing=TRUE),]
+
+g_importance = ggplot(rf.df[1:10,], aes(x = reorder(Feature, Importance), y = Importance))
+g_importance = g_importance  + geom_col(width = 0.8, fill="lightblue", col="darkblue")
+g_importance = g_importance  + labs(y="Relative Importance", x = "Image Feature") + coord_flip() + theme_bw() 
+ggsave(g_importance, file = "plots/fig_randomForest.pdf", width = 4.24, height = 3)
 
 
 # ------------------------------------------
